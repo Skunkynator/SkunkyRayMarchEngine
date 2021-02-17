@@ -1,0 +1,27 @@
+{
+    smoothDifferenceSDF(
+        vec4(sphereCol,Sphere(spherePos - position,sphereRadius)),
+        vec4(boxCol,Box(spherePos-position+vec3(-1,0,0),vec3(0.5))),
+        .5
+    )
+}
+{
+    vec4(vec3(1,1,1)-Mandelbulb(mandelDist));
+}
+{
+    vec4(vec3(1,0.8,0.8),
+    min(
+        min(
+            max(
+                Sphere(spherePos - position,sphereRadius),
+                -Box(spherePos-position+vec3(-1,0,0),vec3(0.5))
+            ),
+            Box(boxPos-position,boxSize)
+        ),
+        Mandelbulb(
+            mod(mandelDist+2,4)-2 //infinite Mandelbulbs
+            //normalize(mandelDist) * (mod(length(mandelDist)+20,40)-20)
+            //mandelDist
+        )
+    ))
+};

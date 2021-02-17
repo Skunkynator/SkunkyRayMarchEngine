@@ -1,0 +1,10 @@
+float Sphere(vec3 dist, float radius)
+{
+    return length(dist) - radius;
+}
+
+float Box( vec3 dist, vec3 size)
+{
+    dist = abs(dist) - size;
+    return length(max(dist,0.0)) + min(max(dist.x,max(dist.y,dist.z)),0.0);
+}
