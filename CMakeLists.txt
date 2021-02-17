@@ -11,6 +11,11 @@ file(GLOB SOURCES "Source/*.cpp" "Source/*.c" "Source/*.hpp" "Source/*.h")
 #file(REMOVE_RECURSE build/Shaders/)
 #file(COPY Shaders/ DESTINATION Shaders/)
 
+if(WIN32)
+    set_property(TARGET raymarchengine
+        PROPERTY VS_PACKAGE_REFERENCES "glfw_3.3.2")
+endif()
+
 add_executable(raymarchengine ${SOURCES})
 
 install(TARGETS raymarchengine RUNTIME DESTINATION bin)
