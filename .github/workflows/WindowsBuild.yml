@@ -1,0 +1,11 @@
+name: Windows Build
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  BuildWindows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cmake --version
