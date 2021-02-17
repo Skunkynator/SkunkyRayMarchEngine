@@ -12,7 +12,7 @@ file(GLOB SOURCES "Source/*.cpp" "Source/*.c" "Source/*.hpp" "Source/*.h")
 #file(COPY Shaders/ DESTINATION Shaders/)
 
 if(WIN32)
-    set_property(TARGET raymarchengine
+    set_property(TARGET MyApplication
         PROPERTY VS_PACKAGE_REFERENCES "glfw_3.3.2")
 endif()
 
