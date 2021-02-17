@@ -1,0 +1,42 @@
+fileSpecificationVer int (this is ver 1)
+objectDataAmount int (number of bytes used by the following object data)
+effectDataAmount int
+objectTypeAmount int (number of object arrays)
+
+[
+    objectTypeID int (1 = sphere, 2 = Box, 65534 = mandelBulb, (more soon to be added from https://iquilezles.org/www/articles/distfunctions/distfunctions.htm )
+        //(id(int) - objectName(char*) corespondence should be saved in another file)
+    objectCount int
+    objectSize int
+    objects (size = objectSize * objectCount) int[
+        objectTransformID int (a unique id for every object, if used twice either discard second object or throw error)
+        ...additional Data depending on object type
+    ]
+]
+
+effects [
+    effectSize int
+    effectID int
+    effectAmount
+    [
+        size int
+        effectTypeID int (0 = uniformScale,  1 = symmetry, 2 = infinit repetition, 3 = finite repetition, 
+            //100 = non-uniformScale (performance hit), 
+            /(CAREFULL!!!) 200 = twist, 201 = distortion, 202 = bend)
+        additional data dependend on effect type
+    ]
+]
+
+transformAmount int (number of transforms)
+
+transforms [
+    transformID int
+    XYZPos      float
+    XYZRotation float (to mat4x4)
+    parentID int
+    effectID int
+    objectID int
+    boundingID int (if -1, no bounding)
+    connectionType int (0 = union, 1 = intersection, 2 = subtract from parent, 4 = smooth (combine in any form))
+    smoothness float
+]
