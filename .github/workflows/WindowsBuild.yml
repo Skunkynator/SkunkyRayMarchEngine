@@ -8,4 +8,13 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cmake --version
+      - run: mkdir Build
+      - run: cd Build
+      - run: cmake .. -G"Visual Studio 14 2015"
+      - run: msbuild
+      - run: cd ..
+      - uses: actions/upload-artifact@v2
+        with:
+          name: WindowsBuild
+          path: Build/*
+
