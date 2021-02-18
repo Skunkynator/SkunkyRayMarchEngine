@@ -40,7 +40,8 @@ namespace sdf {
         float scale;
     };
     class Symmetry : Modifier {
-        virtual float distModifier(float distance) override;
+        Symmetry(Axes axes);
+        Symmetry(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;
         virtual void setData(std::vector<float> modifierData) override;
         virtual std::vector<float> getData() override;
@@ -48,7 +49,8 @@ namespace sdf {
         Axes axes;
     };
     class InfinitRepetition : Modifier {
-        virtual float distModifier(float distance) override;
+        InfinitRepetition(glm::vec3 density);
+        InfinitRepetition(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;
         virtual void setData(std::vector<float> modifierData) override;
         virtual std::vector<float> getData() override;
@@ -56,7 +58,8 @@ namespace sdf {
         glm::vec3 density;
     };
     class FiniteRepetition : Modifier {
-        virtual float distModifier(float distance) override;
+        FiniteRepetition(glm::vec3 density, glm::vec3 amount);
+        FiniteRepetition(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;
         virtual void setData(std::vector<float> modifierData) override;
         virtual std::vector<float> getData() override;
