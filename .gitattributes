@@ -1,2 +1,3 @@
 Shaders/* linguist-language=GLSL
 include/* linguist-generated
+Source/glad.c linguist-generated
