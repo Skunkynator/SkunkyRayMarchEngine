@@ -22,14 +22,18 @@ namespace sdf {
         z = 0b100
     };
     class Modifier {
+    public:
         int TypeID = -1;
         virtual float    distModifier(float distance);
         virtual glm::vec3 vecModifier(glm::vec3 pos);
         virtual void setData(std::vector<float> modifierData);
         virtual std::vector<float> getData();
+        virtual ~Modifier() {};
         //virtual float*    vecModifier(float*    pos);
+        static std::shared_ptr<Modifier> createModifier(int type, float* modifierData);
     };
-    class UniformScale : Modifier {
+    class UniformScale : public Modifier {
+    public:
         UniformScale(float scale);
         UniformScale(float* data);
         virtual float distModifier(float distance) override;
@@ -39,7 +43,8 @@ namespace sdf {
     private:
         float scale;
     };
-    class Symmetry : Modifier {
+    class Symmetry : public Modifier {
+    public:
         Symmetry(Axes axes);
         Symmetry(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;
@@ -48,7 +53,8 @@ namespace sdf {
     private:
         Axes axes;
     };
-    class InfinitRepetition : Modifier {
+    class InfinitRepetition : public Modifier {
+    public:
         InfinitRepetition(glm::vec3 density);
         InfinitRepetition(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;
@@ -57,7 +63,8 @@ namespace sdf {
     private:
         glm::vec3 density;
     };
-    class FiniteRepetition : Modifier {
+    class FiniteRepetition : public Modifier {
+    public:
         FiniteRepetition(glm::vec3 density, glm::vec3 amount);
         FiniteRepetition(float* data);
         virtual glm::vec3 vecModifier(glm::vec3 pos) override;

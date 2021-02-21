@@ -40,6 +40,27 @@ void sdf::Modifier::setData(std::vector<float> modifierData)
     
 }
 
+std::shared_ptr<sdf::Modifier> sdf::Modifier::createModifier(int type, float* modifierData)
+{
+    std::unique_ptr<sdf::Modifier> returnModifier;
+    switch(type)
+    {
+        case sdf::ModifierID::uniformScale:
+            returnModifier = std::unique_ptr<sdf::Modifier>(new sdf::UniformScale(modifierData));
+            break;
+        case sdf::ModifierID::symmetry:
+            returnModifier = std::unique_ptr<sdf::Modifier>(new sdf::Symmetry(modifierData));
+            break;
+        case sdf::ModifierID::infinitRepetition:
+            returnModifier = std::unique_ptr<sdf::Modifier>(new sdf::InfinitRepetition(modifierData));
+            break;
+        case sdf::ModifierID::finiteRepetition:
+            returnModifier = std::unique_ptr<sdf::Modifier>(new sdf::FiniteRepetition(modifierData));
+    }
+    return returnModifier;
+}
+
+
 sdf::FiniteRepetition::FiniteRepetition(float* data)
 {
     density = readVectorData(data,0);

@@ -7,6 +7,7 @@ namespace sdf
     class SDFBox : public SDFObject
     {
     public:
+        SDFBox(float* objectData);
         virtual float SDF(glm::vec3 p) override;
         
         SDFBox(glm::vec3 size);

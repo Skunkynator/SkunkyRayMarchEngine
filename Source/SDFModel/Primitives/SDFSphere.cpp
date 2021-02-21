@@ -18,4 +18,8 @@ std::vector< float > sdf::SDFSphere::getFloatData()
     return SDFData;
 }
 
+sdf::SDFSphere::SDFSphere(float* objectData)
+{
+    this->radius = objectData[0];
+}
 

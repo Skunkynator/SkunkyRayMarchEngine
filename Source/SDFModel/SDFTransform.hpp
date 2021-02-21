@@ -14,7 +14,9 @@ namespace sdf {
         };
     public:
         Transform(std::shared_ptr<SDFObject> object, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot,
-                  ConnectionType type, std::shared_ptr<Transform> parent, std::shared_ptr<SDFObject> bounding, float smooth);
+                  int type, std::shared_ptr<Transform> parent, std::shared_ptr<SDFObject> bounding, float smooth);
+        Transform(std::shared_ptr<SDFObject> object, glm::vec3 position, glm::vec3 rotation,
+                  int type, std::shared_ptr<Transform> parent, std::shared_ptr<SDFObject> bounding, float smooth);
         float distance(float xPos, float yPos, float zPos);
         float distance(glm::vec3);
     private:

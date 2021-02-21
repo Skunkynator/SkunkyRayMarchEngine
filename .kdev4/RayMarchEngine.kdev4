@@ -2,11 +2,21 @@
 BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x1c\x00R\x00a\x00y\x00M\x00a\x00r\x00c\x00h\x00E\x00n\x00g\x00i\x00n\x00e)
 
 [CMake]
-Build Directory Count=1
-Current Build Directory Index-Host System=0
+Build Directory Count=2
+Current Build Directory Index-Host System=1
 
 [CMake][CMake Build Directory 0]
-Build Directory Path=/home/skunky/projects/RayMarchEngine/build
+Build Directory Path=./build
+Build Type=Debug
+CMake Binary=/usr/bin/cmake
+CMake Executable=/usr/bin/cmake
+Environment Profile=
+Extra Arguments=
+Install Directory=/usr/local
+Runtime=Host System
+
+[CMake][CMake Build Directory 1]
+Build Directory Path=/home/skunky/projects/SkunkyRayMarchEngine/build
 Build Type=Debug
 CMake Binary=/usr/bin/cmake
 CMake Executable=/usr/bin/cmake
@@ -30,7 +40,7 @@ parserArgumentsOpenCL=-ferror-limit=100 -fspell-checking -Wdocumentation -Wunuse
 Name=Clang
 
 [CustomDefinesAndIncludes][ProjectPath0][Includes]
-1=/home/skunky/projects/RayMarchEngine/include/
+1=./include/
 
 [Filters]
 size=42
