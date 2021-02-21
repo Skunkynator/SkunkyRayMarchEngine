@@ -7,6 +7,11 @@
 
 std::shared_ptr<sdf::SDFObject> createSDFObject(int ID, float * objectData);
 
+void sdf::SDFModel::sendDataToShader(Shader shader)
+{
+}
+
+
 float readFloat(std::ifstream * istream)
 {
     float value;

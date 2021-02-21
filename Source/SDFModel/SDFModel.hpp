@@ -5,6 +5,7 @@
 #include "Modifiers/Modifier.hpp"
 #include "SDFTransform.hpp"
 #include <vector>
+#include "../shader.h"
 namespace sdf
 {
     class SDFModel
@@ -13,6 +14,7 @@ namespace sdf
         unsigned int ID;
         SDFModel(const char* sdfPath);
         void safeAsFile(const char* sdfPath);
+        void sendDataToShader(Shader shader);
     private:
         std::vector<std::shared_ptr<SDFObject>> objects;
         std::vector<std::shared_ptr<Modifier>>  modifiers;

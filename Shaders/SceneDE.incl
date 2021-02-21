@@ -2,8 +2,15 @@
 #pragma include "Mandelbulb.incl"
 #pragma include "CombineSDF.incl"
 
-uniform int SphereAmount;
-uniform int[] SphereData;
+uniform int objectSize;
+uniform int objectAmount;
+uniform float[] objectData;
+uniform int transformAmount;
+uniform float[] transformData;
+uniform int effectSize;
+uniform int effectAmount;
+uniform float[] effectData;
+
 vec3 repLim(vec3 position, float c, vec3 amount);
 
 vec4 DistanceEstimator(vec3 position) {

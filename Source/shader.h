@@ -16,6 +16,7 @@ public:
     void setVec3(const std::string &name, float xVal,float yVal,float zVal) const;
     void setVec3(const std::string &name, float* value) const;
     void setVec3(const std::string &name, glm::vec3 value) const;
+    void setFloatArr(const std::string &name, float* value,float size) const;
     void setMatrix4fv(const std::string &name, float* value) const;
 private:
     int uniformLocation(const std::string &name) const;
